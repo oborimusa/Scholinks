@@ -2,100 +2,85 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>Scholinks - Virtual Campus</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Scholinks – News Feed</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-      background-color: #f0f2f5;
-    }
-    .navbar {
-      background-color: #4267B2;
-    }
-    .navbar-brand, .nav-link {
-      color: #fff !important;
-      font-weight: 500;
-    }
-    .card-title {
-      color: #4267B2;
-    }
-    .post-box textarea {
-      resize: none;
-    }
-    .post {
-      background: #fff;
-      border-radius: 8px;
-      padding: 15px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.05);
-      margin-bottom: 20px;
-    }
-  </style>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg">
-  <div class="container-fluid">
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
     <a class="navbar-brand" href="#">Scholinks</a>
-    <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon bg-light rounded"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link" href="#" class="nav-link active">News Feed</a></li>
-        <li class="nav-item"><a class="nav-link" href="study-groups.html">Study Groups</a></li>
+    <div class="collapse navbar-collapse justify-content-end">
+      <ul class="navbar-nav">
         <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
         <li class="nav-item"><a class="nav-link" href="messages.html">Messages</a></li>
+        <li class="nav-item"><a class="nav-link" href="study-groups.html">Study Groups</a></li>
         <li class="nav-item"><a class="nav-link" href="help-settings.html">Help & Settings</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
-  <!-- Main Content -->
-  <div class="container py-4" style="max-width: 700px;">
-    
-    <!-- Create Post Box -->
-    <div class="post-box bg-white rounded p-3 shadow-sm mb-4">
-      <h5 class="mb-3">What's on your mind?</h5>
-      <form>
-        <textarea class="form-control mb-2" rows="3" placeholder="Share an update, note, or question..."></textarea>
-        <button type="submit" class="btn btn-primary">Post</button>
-      </form>
-    </div>
-
-    <!-- Sample Post 1 -->
-    <div class="post">
-      <h6><strong>Amina Yusuf</strong> <small class="text-muted">· 1 hour ago</small></h6>
-      <p>Just finished my Chemistry revision notes! 📘✨ Anyone want to join a study group this weekend?</p>
-      <div class="d-flex justify-content-between">
-        <button class="btn btn-sm btn-outline-primary">👍 Like</button>
-        <button class="btn btn-sm btn-outline-secondary">💬 Comment</button>
-      </div>
-    </div>
-
-    <!-- Sample Post 2 -->
-    <div class="post">
-      <h6><strong>Group: SS3 Biology Squad</strong> <small class="text-muted">· 3 hours ago</small></h6>
-      <p>Reminder: Our Zoom session on Genetics starts at 7 PM! Link is in the group chat. Don’t be late 💻🧬</p>
-      <div class="d-flex justify-content-between">
-        <button class="btn btn-sm btn-outline-primary">👍 Like</button>
-        <button class="btn btn-sm btn-outline-secondary">💬 Comment</button>
-      </div>
-    </div>
-
-    <!-- Sample Post 3 -->
-    <div class="post">
-      <h6><strong>Chinedu Okoro</strong> <small class="text-muted">· Yesterday</small></h6>
-      <p>Does anyone have the WAEC 2023 English past questions PDF? I need it urgently. 🙏</p>
-      <div class="d-flex justify-content-between">
-        <button class="btn btn-sm btn-outline-primary">👍 Like</button>
-        <button class="btn btn-sm btn-outline-secondary">💬 Comment</button>
-      </div>
-    </div>
-
+<!-- HERO / WELCOME SECTION -->
+<header class="bg-light text-center py-5">
+  <div class="container">
+    <h1 class="display-4 fw-bold">Welcome to Scholinks</h1>
+    <p class="lead">Your Virtual Campus — Learn. Connect. Grow.</p>
+    <a href="profile.html" class="btn btn-primary btn-lg mt-3">Go to Profile</a>
   </div>
+</header>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- FEATURES GRID -->
+<section class="py-5">
+  <div class="container">
+    <div class="row text-center">
+      
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h4 class="card-title">📩 Messages</h4>
+            <p class="card-text">Chat with classmates and stay updated.</p>
+            <a href="messages.html" class="btn btn-outline-primary">Open Messages</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h4 class="card-title">👥 Study Groups</h4>
+            <p class="card-text">Join group discussions and study sessions.</p>
+            <a href="study-groups.html" class="btn btn-outline-primary">Explore Groups</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h4 class="card-title">⚙️ Settings</h4>
+            <p class="card-text">Customize your account and preferences.</p>
+            <a href="help-settings.html" class="btn btn-outline-primary">Open Settings</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-dark text-white text-center py-3">
+  <div class="container">
+    <small>&copy; 2025 Scholinks. All rights reserved.</small>
+  </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
