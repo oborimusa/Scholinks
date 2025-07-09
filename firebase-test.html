@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Firebase Image Upload Test</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    img { width: 120px; height: 120px; border-radius: 50%; display: block; margin-bottom: 10px;}
+  </style>
+</head>
+<body>
+  <h2>Firebase Test: Upload Profile Picture</h2>
+  <img id="preview" src="image/mpic.jpeg" alt="Preview">
+  <input type="file" id="fileInput" accept="image/*">
+  <p id="status"></p>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
+    import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+    // 🔧 Your Firebase config
+    const firebaseConfig = {
+      apiKey: "AIzaSyDzrgcV4TpIhVUbwJXRlkM1w5-i2zaaD5s",
+      authDomain: "scholinks-63ad2.firebaseapp.com",
+      projectId: "scholinks-63ad2",
+      storageBucket: "scholinks-63ad2.appspot.com",
+      messagingSenderId: "644006623382",
+      appId: "1:644006623382:web:b923f7ba4de7e90d2e2ab7",
+      measurementId: "G-CV31L1X2P8"
+    };
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const storage = getStorage(app);
+    const db = getFirestore(app);
+
+    const preview = document.getElementById('preview');
+    const fileInput = document.getElementById('fileInput');
+    const status = document.getElementById('status');
+
+    // Anonymous login
+    signInAnonymously(auth).catch(err => status.textContent = 'Auth error: ' + err);
+
+    onAuthStateChanged(auth, async user => {
+      if (!user) return;
+      status.textContent = 'Logged in with UID: ' + user.uid;
+      
+      // Load existing
+      const userDoc = doc(db, 'users', user.uid);
+      const snap = await getDoc(userDoc);
+      if (snap.exists() && snap.data().photoURL) {
+        preview.src = snap.data().photoURL;
+      }
+
+      // File upload
+      fileInput.addEventListener('change', async () => {
+        const file = fileInput.files[0];
+        if (!file) return;
+        const path = `profile-pictures/${user.uid}-${Date.now()}-${file.name}`;
+        const fileRef = ref(storage, path);
+        try {
+          await uploadBytes(fileRef, file);
+          const url = await getDownloadURL(fileRef);
+          preview.src = url;
+          await setDoc(userDoc, { photoURL: url }, { merge: true });
+          status.textContent = 'Image uploaded successfully!';
+        } catch (e) {
+          console.error(e);
+          status.textContent = 'Upload failed: ' + e;
+        }
+      });
+    });
+  </script>
+</body>
+</html>
