@@ -4,8 +4,13 @@
   <meta charset="UTF-8">
   <title>Scholinks - Virtual Campus</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .card img {
+      max-height: 120px;
+      object-fit: cover;
+    }
+  </style>
 </head>
 <body>
 
@@ -18,52 +23,58 @@
         <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
         <li class="nav-item"><a class="nav-link" href="messages.html">Messages</a></li>
         <li class="nav-item"><a class="nav-link" href="study-groups.html">Study Groups</a></li>
-        <li class="nav-item"><a class="nav-link" href="help-settings.html">Help & Settings</a></li>
+        <li class="nav-item"><a class="nav-link" href="help-settings.html">Settings</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
-<!-- HERO / WELCOME SECTION -->
+<!-- HERO SECTION -->
 <header class="bg-light text-center py-5">
   <div class="container">
     <h1 class="display-4 fw-bold">Welcome to Scholinks</h1>
     <p class="lead">Your Virtual Campus — Learn. Connect. Grow.</p>
-    <a href="profile.html" class="btn btn-primary btn-lg mt-3">Go to Profile</a>
+    <a href="profile.html" class="btn btn-primary btn-lg">Visit Your Profile</a>
   </div>
 </header>
 
-<!-- FEATURES GRID -->
-<section class="py-5">
+<!-- DASHBOARD PREVIEW -->
+<section class="py-5 bg-white">
   <div class="container">
     <div class="row text-center">
-      
+
+      <!-- Profile Card -->
       <div class="col-md-4 mb-4">
-        <div class="card shadow-sm">
+        <div class="card">
+          <img src="image/mpic.jpeg" class="card-img-top" alt="Profile Picture">
           <div class="card-body">
-            <h4 class="card-title">📩 Messages</h4>
-            <p class="card-text">Chat with classmates and stay updated.</p>
-            <a href="messages.html" class="btn btn-outline-primary">Open Messages</a>
+            <h5 class="card-title">Your Profile</h5>
+            <p class="card-text">View and edit your academic profile.</p>
+            <a href="profile.html" class="btn btn-outline-primary">Open Profile</a>
           </div>
         </div>
       </div>
-      
+
+      <!-- Messages Preview -->
       <div class="col-md-4 mb-4">
-        <div class="card shadow-sm">
+        <div class="card">
           <div class="card-body">
-            <h4 class="card-title">👥 Study Groups</h4>
-            <p class="card-text">Join group discussions and study sessions.</p>
-            <a href="study-groups.html" class="btn btn-outline-primary">Explore Groups</a>
+            <h5 class="card-title">Recent Message</h5>
+            <p><strong>John:</strong> Are we still meeting at 3pm?</p>
+            <p><strong>Ada:</strong> Don’t forget the group assignment!</p>
+            <a href="messages.html" class="btn btn-outline-primary">View Messages</a>
           </div>
         </div>
       </div>
-      
+
+      <!-- Study Groups Preview -->
       <div class="col-md-4 mb-4">
-        <div class="card shadow-sm">
+        <div class="card">
           <div class="card-body">
-            <h4 class="card-title">⚙️ Settings</h4>
-            <p class="card-text">Customize your account and preferences.</p>
-            <a href="help-settings.html" class="btn btn-outline-primary">Open Settings</a>
+            <h5 class="card-title">Study Groups</h5>
+            <p><strong>Web Dev Group:</strong> 5 new posts</p>
+            <p><strong>Data Science:</strong> Meeting on Saturday</p>
+            <a href="study-groups.html" class="btn btn-outline-primary">Go to Groups</a>
           </div>
         </div>
       </div>
@@ -81,6 +92,5 @@
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
 </html>
